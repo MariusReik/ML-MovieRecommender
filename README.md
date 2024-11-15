@@ -2,7 +2,7 @@
 
 Applikasjonen kan finnes ved: [https://huggingface.co/spaces/Mariusbr/DAT158](https://huggingface.co/spaces/Mariusbr/DAT158)
 Exempel kjøring av applikasjonen kan finnes ved filen Example.mp4.
-Prosjketet er lager av Marius Reikerås.
+Prosjketet er lager av Marius Reikerås(591443).
 
 ## **Introduksjon**
 Formålet med dette prosjektet er å utvikle en applikasjon for anbefaling av filmer basert på brukerens preferanser for sjangre og favorittfilmer. Applikasjonen er ment å gi brukerne tilpassede filmanbefalinger uten krav om innlogging eller deling av sensitive opplysninger. Dette er en enkel løsning som retter seg mot filmentusiaster som søker nye filmforslag basert på deres tidligere preferanser.
