@@ -2,7 +2,7 @@
 
 Applikasjonen kan finnes ved: [https://huggingface.co/spaces/Mariusbr/DAT158](https://huggingface.co/spaces/Mariusbr/DAT158)
 Exempel kjøring av applikasjonen kan finnes ved filen Example.mp4
-
+Prosjketet er lager av Marius Reikerås
 
 ## **Introduksjon**
 Formålet med dette prosjektet er å utvikle en applikasjon for anbefaling av filmer basert på brukerens preferanser for sjangre og favorittfilmer. Applikasjonen er ment å gi brukerne tilpassede filmanbefalinger uten krav om innlogging eller deling av sensitive opplysninger. Dette er en enkel løsning som retter seg mot filmentusiaster som søker nye filmforslag basert på deres tidligere preferanser.
@@ -26,7 +26,7 @@ Tilsvarende løsninger, som større strømmeplattformer, krever ofte innlogging 
 Det finnes også utallige andre filmanbefalingsnettsteder, men dette prosjektet ble likevel valgt fordi ideen var interessant å utforske.
 
 ## **Business Metrics for Ytelsesmåling**
-For å evaluere om systemet oppfyller sine forretningsmål, kan vi bruke følgende business metrics:
+For å evaluere om systemet oppfyller sine forretningsmål, kan følgende business metrics brukes:
 
 - **Brukertilfredshet**: Målt via tilbakemeldinger eller vurderinger fra brukerne.
 - **Relevans**: Sikre at filmene som blir anbefalt er relevante for brukeren, ved å måle hvor ofte brukere finner anbefalingene interessante.
@@ -65,14 +65,13 @@ Dataene som brukes i dette prosjektet er hentet fra MovieLens 20M-datasettet, so
 2. **TF-IDF Vectorizer**: Tekstanalysemetoden TF-IDF brukes til å lage en representasjon av filmens innhold, basert på tagger og sjanger, som deretter brukes til klustering.
 3. **K-Means-klustering**: Modellering skjer ved bruk av K-Means-klustering, som grupperer lignende filmer i klynger. Dette hjelper med å gi anbefalinger ved å finne filmer i samme klynge som de som brukeren liker.
 
-## **Modellering**
-K-Means-klustering ble valgt som hovedmetode for å gruppere filmer basert på liknende innholdskarakteristikker, inkludert sjanger og brukergenererte tagger. Målet med klustering var å oppnå en gruppering som kunne brukes til å gi relevante anbefalinger til brukerne basert på deres preferanser. Evalueringsprosessen bestod hovedsakelig av manuell gjennomgang av anbefalingene for å sikre at de ga mening og hadde høy relevans for input som ble gitt.
+**Modellering**
+Det ble valgt K-means-klustering som hovedmetode for å gruppere filmer med lignende innholdskarakteristikker, som sjanger og brukergenererte tagger. Målet var å skape grupperinger som kunne brukes til å gi relevante anbefalinger basert på brukernes preferanser. Andre metoder ble også vurdert, men fant at klustering passet best for dette prosjektet.
 
-Alternativer som DBSCAN og hierarkisk klustering ble også vurdert, men K-Means ble valgt på grunn av dens enkle implementasjon og ytelse på datasettet.
+**Evaluering av modellen**
+- **Subjektiv vurdering**: Modellen ble evaluert ved manuelt å vurdere om anbefalingene var relevante og interessante for brukernes input. Selv om det ikke forelå en spesifikk sammenligningsmodell, ble resultatene vurdert ut fra om de møtte forventningene til relevans og variasjon i anbefalingene. 
 
-**Evaluering av modellen**:
-- **Subjektiv vurdering**: Evalueringen av modellen ble gjort ved å manuelt vurdere om anbefalingene som ble gitt, virket relevante og interessante for brukerens input. Det var ingen spesifikk baseline-modell for sammenligning, men resultatene ble vurdert ut ifra om de oppfylte forventningene om relevans og variasjon i anbefalingene.
-- **Anbefalingsalgoritme**: Anbefalingssystemet kombinerer vektede faktorer som likhet, popularitet (antall vurderinger) og gjennomsnittlig vurdering for å komme med anbefalinger. Målet er å maksimere både relevans og nøyaktighet i anbefalingene.
+- **Anbefalingsalgoritme**: Systemet kombinerer faktorer som likhet, popularitet (antall vurderinger) og gjennomsnittlig vurdering for å gi anbefalinger. Målet er å maksimere både relevans og nøyaktighet i anbefalingene. 
 
 ## **Deployment**
 Filmanbefalingssystemet er implementert som et web-basert brukergrensesnitt ved hjelp av Gradio, som gir enkel interaksjon mellom brukeren og maskinlæringsmodellen. Brukeren kan skrive inn en liste med favorittfilmer og foretrukne sjangre, og systemet vil returnere anbefalte filmer. Modellen kjører lokalt, og Gradio grensesnittet sikrer en interaktiv og responsiv opplevelse for brukeren. Modellen distribueres uten behov for innlogging, noe som gjør systemet tilgjengelig for alle interesserte brukere.
